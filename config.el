@@ -2,6 +2,7 @@
 
 (load-file "~/.doom.d/commands.el")
 (load-file "~/.doom.d/org.el")
+(load-file "~/.doom.d/keymaps.el")
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
@@ -125,4 +126,3 @@
   ;; before ispell-hunspell-add-multi-dic will work
   (ispell-set-spellchecker-params)
   (ispell-hunspell-add-multi-dic "en_US,pt_BR"))
-
