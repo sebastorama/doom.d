@@ -1,5 +1,8 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
+(load-file "~/.doom.d/commands.el")
+(load-file "~/.doom.d/org.el")
+
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
@@ -8,6 +11,9 @@
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "Sebastião Giacheto Ferreira Júnior"
       user-mail-address "sebastorama@gmail.com")
+
+(setq doom-font-increment 1)
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'light))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -108,6 +114,9 @@
 
 (remove-hook 'text-mode-hook #'spell-fu-mode)
 
+
+(setenv "XMODIFIERS" "")
+
 (with-eval-after-load "ispell"
   (setenv "LANG" "en_US")
   (setq ispell-program-name "hunspell")
@@ -116,3 +125,4 @@
   ;; before ispell-hunspell-add-multi-dic will work
   (ispell-set-spellchecker-params)
   (ispell-hunspell-add-multi-dic "en_US,pt_BR"))
+
