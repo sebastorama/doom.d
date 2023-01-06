@@ -10,11 +10,11 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "Sebastião Giacheto Ferreira Júnior"
+(setq! user-full-name "Sebastião Giacheto Ferreira Júnior"
       user-mail-address "sebastorama@gmail.com")
 
-(setq doom-font-increment 1)
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'light))
+(setq! doom-font-increment 1)
+(setq! doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'light))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -39,16 +39,20 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq! doom-theme 'doom-tomorrow-night)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq! display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq! org-directory "~/org/")
 
+;; Give something to grab when resizing
+(window-divider-mode)
+(setq! window-divider-default-right-width 15)
+(setq! window-divider-default-bottom-width 15)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -107,9 +111,9 @@
 (add-hook 'typescript-mode-hook
           (lambda () (add-hook 'before-save-hook 'my/eslint-format nil 'local)))
 
-(setq ispell-data-dir "~/Library/Spelling/")
-(setq ispell-aspell-dict-dir ispell-aspell-data-dir)
-(setq ispell-aspell-dictionary-alist '())
+(setq! ispell-data-dir "~/Library/Spelling/")
+(setq! ispell-aspell-dict-dir ispell-aspell-data-dir)
+(setq! ispell-aspell-dictionary-alist '())
 (add-to-list 'ispell-aspell-dictionary-alist (ispell-aspell-find-dictionary "en_US"))
 (add-to-list 'ispell-aspell-dictionary-alist (ispell-aspell-find-dictionary "pt_BR"))
 
@@ -120,8 +124,8 @@
 
 (with-eval-after-load "ispell"
   (setenv "LANG" "en_US")
-  (setq ispell-program-name "hunspell")
-  (setq ispell-dictionary "en_US,pt_BR")
+  (setq! ispell-program-name "hunspell")
+  (setq! ispell-dictionary "en_US,pt_BR")
   ;; ispell-set-spellchecker-params has to be called
   ;; before ispell-hunspell-add-multi-dic will work
   (ispell-set-spellchecker-params)

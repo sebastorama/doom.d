@@ -193,7 +193,3 @@
        ;;literate
        (default +bindings +smartparens))
 
-;; Give something to grab when resizing
-(window-divider-mode)
-(setq! window-divider-default-right-width 15)
-(setq! window-divider-default-bottom-width 15)
