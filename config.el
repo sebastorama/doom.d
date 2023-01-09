@@ -3,6 +3,8 @@
 (load-file "~/.doom.d/commands.el")
 (load-file "~/.doom.d/org.el")
 (load-file "~/.doom.d/keymaps.el")
+(load-file "~/.doom.d/hydra.el")
+(load-file "~/.doom.d/lsp.el")
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
@@ -14,7 +16,7 @@
       user-mail-address "sebastorama@gmail.com")
 
 (setq! doom-font-increment 1)
-(setq! doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'light))
+(setq! doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'medium))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -39,7 +41,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq! doom-theme 'doom-tomorrow-night)
+(setq! doom-theme 'modus-operandi)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
