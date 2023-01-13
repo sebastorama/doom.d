@@ -14,3 +14,8 @@
 (setq! org-superstar-special-todo-items nil)
 (add-hook! 'org-mode-hook (lambda ()
                             (org-superstar-mode 1)))
+
+;; Org Babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((js . t)))

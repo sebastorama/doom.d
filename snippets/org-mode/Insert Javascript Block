@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Insert Javascript Block
+# key: srcjs
+# --
+#+BEGIN_SRC js
+$1
+#+END_SRC
