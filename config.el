@@ -17,7 +17,7 @@
 
 (setq! doom-font-increment 1)
 (setq! doom-font
-       (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'light))
+       (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'medium))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -113,6 +113,7 @@
 
 (remove-hook 'text-mode-hook #'spell-fu-mode)
 
+(setq! completion-styles '(flex))
 
 (setenv "XMODIFIERS" "")
 
