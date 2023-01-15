@@ -9,3 +9,5 @@
 (map! :map dired-mode-map
       :n "-" (lambda () (interactive) (find-alternate-file ".."))
       :n "RET"  'dired-find-alternate-file)
+
+(map! "C-," 'embark-act)
