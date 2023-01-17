@@ -113,7 +113,8 @@
 
 (remove-hook 'text-mode-hook #'spell-fu-mode)
 
-(setq! completion-styles '(flex))
+(with-eval-after-load 'vertico
+  (setq! completion-styles '(flex)))
 
 (setenv "XMODIFIERS" "")
 
