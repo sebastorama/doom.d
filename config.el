@@ -17,7 +17,7 @@
 
 (setq! doom-font-increment 1)
 (setq! doom-font
-       (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'medium))
+       (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'regular))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -104,6 +104,7 @@
 
 (add-hook! 'typescript-mode-hook
           (lambda () (add-hook 'before-save-hook 'my/eslint-format nil 'local)))
+(add-hook! 'typescript-mode-hook 'tree-sitter-hl-mode)
 
 (setq! ispell-data-dir "~/Library/Spelling/")
 (setq! ispell-aspell-dict-dir ispell-aspell-data-dir)
