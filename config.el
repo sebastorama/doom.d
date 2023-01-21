@@ -5,6 +5,7 @@
 (load-file "~/.doom.d/keymaps.el")
 (load-file "~/.doom.d/hydra.el")
 (load-file "~/.doom.d/lsp.el")
+(load-file "~/.doom.d/general-preferences.el")
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
@@ -103,7 +104,9 @@
      (lsp-format-buffer))))
 
 (add-hook! 'typescript-mode-hook
-          (lambda () (add-hook 'before-save-hook 'my/eslint-format nil 'local)))
+          (lambda ()
+            (add-hook 'before-save-hook 'my/eslint-format nil 'local)
+            (setq! tab-width 2)))
 (add-hook! 'typescript-mode-hook 'tree-sitter-hl-mode)
 
 (setq! ispell-data-dir "~/Library/Spelling/")
