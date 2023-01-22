@@ -6,10 +6,11 @@
 (load-file "~/.doom.d/hydra.el")
 (load-file "~/.doom.d/lsp.el")
 (load-file "~/.doom.d/general-preferences.el")
+(load-file "~/.doom.d/typescript.el")
+(load-file "~/.doom.d/spell.el")
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
-
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
@@ -18,7 +19,7 @@
 
 (setq! doom-font-increment 1)
 (setq! doom-font
-       (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'regular))
+       (font-spec :family "Iosevka" :size 14 :weight 'regular))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -48,11 +49,6 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq! display-line-numbers-type 'relative)
-
-;; Give something to grab when resizing
-(window-divider-mode)
-(setq! window-divider-default-right-width 15)
-(setq! window-divider-default-bottom-width 15)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -89,44 +85,4 @@
 ;; accept completion from copilot and fallback to company
 (use-package! copilot :hook (prog-mode . copilot-mode))
 
-;; Make sure that TypeScript files only get formatted once, with eslint when present.
-(setq-hook! 'typescript-mode-hook +format-with-lsp nil)
-(setq-hook! 'typescript-tsx-mode-hook +format-with-lsp nil)
-
-(defun my/eslint-format ()
-  (interactive
-   (if-let ((eslint (-first (lambda (wks)
-                              (eq 'eslint (lsp--client-server-id
-                                           (lsp--workspace-client wks))))
-                            (lsp-workspaces))))
-       (with-lsp-workspace eslint
-         (lsp-format-buffer))
-     (lsp-format-buffer))))
-
-(add-hook! 'typescript-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'my/eslint-format nil 'local)
-            (setq! tab-width 2)))
-(add-hook! 'typescript-mode-hook 'tree-sitter-hl-mode)
-
-(setq! ispell-data-dir "~/Library/Spelling/")
-(setq! ispell-aspell-dict-dir ispell-aspell-data-dir)
-(setq! ispell-aspell-dictionary-alist '())
-(add-to-list 'ispell-aspell-dictionary-alist (ispell-aspell-find-dictionary "en_US"))
-(add-to-list 'ispell-aspell-dictionary-alist (ispell-aspell-find-dictionary "pt_BR"))
-
-(remove-hook 'text-mode-hook #'spell-fu-mode)
-
-(with-eval-after-load 'vertico
-  (setq! completion-styles '(flex)))
-
 (setenv "XMODIFIERS" "")
-
-(with-eval-after-load "ispell"
-  (setenv "LANG" "en_US")
-  (setq! ispell-program-name "hunspell")
-  (setq! ispell-dictionary "en_US,pt_BR")
-  ;; ispell-set-spellchecker-params has to be called
-;; ispell-hunspell-add-multi-dic will work
-  (ispell-set-spellchecker-params)
-  (ispell-hunspell-add-multi-dic "en_US,pt_BR"))
