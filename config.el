@@ -1,10 +1,10 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-(load-file "~/.doom.d/commands.el")
-(load-file "~/.doom.d/org.el")
-(load-file "~/.doom.d/keymaps.el")
-(load-file "~/.doom.d/hydra.el")
-(load-file "~/.doom.d/lsp.el")
+(load-file "~/.config/doom/commands.el")
+(load-file "~/.config/doom/org.el")
+(load-file "~/.config/doom/keymaps.el")
+(load-file "~/.config/doom/hydra.el")
+(load-file "~/.config/doom/lsp.el")
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
@@ -17,7 +17,9 @@
 
 (setq! doom-font-increment 1)
 (setq! doom-font
-       (font-spec :family "JetBrainsMono Nerd Font" :size 18 :weight 'medium))
+       (font-spec :family "JetBrains Mono" :size 14 :weight 'medium))
+
+(setq! doom-unicode-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'medium))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -89,8 +91,8 @@
 (use-package! copilot :hook (prog-mode . copilot-mode))
 
 ;; Make sure that TypeScript files only get formatted once, with eslint when present.
-(setq-hook! 'typescript-mode-hook +format-with-lsp nil)
-(setq-hook! 'typescript-tsx-mode-hook +format-with-lsp nil)
+(setq-hook! 'typescript-ts-mode-hook +format-with-lsp nil)
+(setq-hook! 'tsx-ts-mode-hook +format-with-lsp nil)
 
 (defun my/eslint-format ()
   (interactive
@@ -102,8 +104,13 @@
          (lsp-format-buffer))
      (lsp-format-buffer))))
 
-(add-hook! 'typescript-mode-hook
+(add-hook! 'typescript-ts-mode-hook
           (lambda () (add-hook 'before-save-hook 'my/eslint-format nil 'local)))
+
+(setq auto-mode-alist (rassq-delete-all 'typescript-mode auto-mode-alist))
+(setq auto-mode-alist (rassq-delete-all 'typescript-tsx-mode auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
 
 (setq! ispell-data-dir "~/ispell")
 ;; (setq! ispell-aspell-dict-dir ispell-aspell-data-dir)

@@ -5,6 +5,10 @@
 ;; Everything is an agenda file
 (setq! org-agenda-files '("~/org"))
 
+(after! org
+  (setq! org-agenda-span 20))
+
+
 ;; Org-roam
 (setq! org-roam-directory (file-truename "~/org/"))
 (setq! org-roam-dailies-directory "daily/")
