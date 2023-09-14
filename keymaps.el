@@ -28,3 +28,6 @@
 (map! "C-c F c" 'clone-frame)
 (map! "C-c F <RET>" 'select-frame-by-name)
 (map! "C-c F r" 'set-frame-name)
+
+;; My redefinitions
+(map! "C-x C-b" 'ibuffer)
