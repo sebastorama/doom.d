@@ -29,5 +29,10 @@
 (map! "C-c F <RET>" 'select-frame-by-name)
 (map! "C-c F r" 'set-frame-name)
 
+
+;; ORG (roam) mode
+(map! "C-c o i" 'org-roam-node-insert)
+(map! "C-c o o" 'org-roam-node-find)
+
 ;; My redefinitions
 (map! "C-x C-b" 'ibuffer)
