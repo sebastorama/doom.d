@@ -12,7 +12,19 @@
 
 (map! "C-," 'embark-act)
 
+;; My preference for splits
+(map! "C-x 2" '+evil/window-split-and-follow)
+(map! "C-x 3" '+evil/window-vsplit-and-follow)
+
 ;; Projectile mappings
 (map! "C-c p f" 'projectile-find-file)
 (map! "C-c p p" 'projectile-switch-project)
 (map! "C-c p r" 'projectile-recentf)
+
+;; Frame management
+(map! "C-c F n" 'make-frame-command)
+(map! "C-c F d" 'delete-frame)
+(map! "C-c F o" 'other-frame)
+(map! "C-c F c" 'clone-frame)
+(map! "C-c F <RET>" 'select-frame-by-name)
+(map! "C-c F r" 'set-frame-name)
