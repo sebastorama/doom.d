@@ -5,6 +5,7 @@
 (load-file "~/.config/doom/keymaps.el")
 (load-file "~/.config/doom/hydra.el")
 (load-file "~/.config/doom/lsp.el")
+(load-file "~/.config/doom/options.el")
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!

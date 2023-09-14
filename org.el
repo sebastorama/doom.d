@@ -6,7 +6,8 @@
 (setq! org-agenda-files '("~/org"))
 
 (after! org
-  (setq! org-agenda-span 20))
+  (setq! org-agenda-span 20)
+  (setq! org-agenda-files (directory-files-recursively "~/org/" "\\.org$")))
 
 
 ;; Org-roam

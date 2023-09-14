@@ -11,3 +11,8 @@
       :n "RET"  'dired-find-alternate-file)
 
 (map! "C-," 'embark-act)
+
+;; Projectile mappings
+(map! "C-c p f" 'projectile-find-file)
+(map! "C-c p p" 'projectile-switch-project)
+(map! "C-c p r" 'projectile-recentf)
