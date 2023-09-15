@@ -29,10 +29,16 @@
 (map! "C-c F <RET>" 'select-frame-by-name)
 (map! "C-c F r" 'set-frame-name)
 
+;; Open terminal
+(map! "C-c t" '+vterm/here)
 
 ;; ORG (roam) mode
 (map! "C-c o i" 'org-roam-node-insert)
 (map! "C-c o o" 'org-roam-node-find)
+(map! "C-c o I" 'org-id-get-create)
+
+;; Agenda
+(map! "C-c a a" 'org-agenda)
 
 ;; My redefinitions
 (map! "C-x C-b" 'ibuffer)
