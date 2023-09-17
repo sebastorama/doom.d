@@ -4,7 +4,7 @@
 (map! "s-}" 'tab-bar-switch-to-next-tab)
 (map! "s-{" 'tab-bar-switch-to-prev-tab)
 
-(map! "<backtab>" 'copilot-accept-completion)
+(map! "s-i" 'copilot-accept-completion)
 ;; Make dired use the same buffer
 (map! :map dired-mode-map
       :n "-" (lambda () (interactive) (find-alternate-file ".."))
@@ -39,6 +39,21 @@
 
 ;; Agenda
 (map! "C-c a a" 'org-agenda)
+
+;; Embark
+(defvar-keymap embark-file-map
+  :doc "Embark File Map"
+  :parent embark-general-map
+  "V" #'find-file-other-window
+  "T" #'find-file-other-tab)
+
+(defvar-keymap embark-buffer-map
+  :doc "Embark Buffer Map"
+  :parent embark-general-map
+  "V" #'switch-to-buffer-other-window
+  "T" #'switch-to-bufer-other-tab)
+
+(defvar-keymap embark-)
 
 ;; My redefinitions
 (map! "C-x C-b" 'ibuffer)
