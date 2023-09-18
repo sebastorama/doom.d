@@ -40,18 +40,40 @@
 ;; Agenda
 (map! "C-c a a" 'org-agenda)
 
-;; Embark
-(defvar-keymap embark-file-map
-  :doc "Embark File Map"
-  :parent embark-general-map
-  "V" #'find-file-other-window
-  "T" #'find-file-other-tab)
+;; Ace Window
+(map! "M-o" 'ace-window)
 
-(defvar-keymap embark-buffer-map
-  :doc "Embark Buffer Map"
-  :parent embark-general-map
-  "V" #'switch-to-buffer-other-window
-  "T" #'switch-to-bufer-other-tab)
+;; Embark
+(map!
+ :map embark-file-map
+ :desc "Open in vsplit" "V" (lambda (file)
+                             (interactive "f") ;; binds =file= to result of (read-file-name ...), when called interactively
+                             (+evil/window-vsplit-and-follow)
+                             (find-file file))
+ :desc "Open in split" "H" (lambda (file)
+                             (interactive "f") ;; binds =file= to result of (read-file-name ...), when called interactively
+                             (+evil/window-split-and-follow)
+                             (find-file file))
+ :desc "Open in new Tab" "T" (lambda (file)
+                             (interactive "f") ;; binds =file= to result of (read-file-name ...), when called interactively
+                             (tab-bar-new-tab)
+                             (find-file file)))
+(map!
+ :map embark-buffer-map
+ :desc "Open in vsplit" "V" (lambda (file)
+                             (interactive "f") ;; binds =file= to result of (read-file-name ...), when called interactively
+                             (+evil/window-vsplit-and-follow)
+                             (find-file file))
+
+ :desc "Open in split" "H" (lambda (file)
+                             (interactive "f") ;; binds =file= to result of (read-file-name ...), when called interactively
+                             (+evil/window-split-and-follow)
+                             (find-file file))
+
+ :desc "Open in new Tab" "T" (lambda (file)
+                             (interactive "f") ;; binds =file= to result of (read-file-name ...), when called interactively
+                             (tab-bar-new-tab)
+                             (find-file file)))
 
 (defvar-keymap embark-)
 
