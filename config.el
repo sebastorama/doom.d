@@ -18,9 +18,8 @@
 
 (setq! doom-font-increment 1)
 (setq! doom-font
-       (font-spec :family "JetBrains Mono" :size 14 :weight 'medium))
-
-(setq! doom-unicode-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'medium))
+       (font-spec :family "Iosevka Nerd Font Mono" :size 15 :weight 'medium))
+;; (setq! doom-unicode-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'medium))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -45,7 +44,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq! doom-theme 'modus-operandi)
+(setq! doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
