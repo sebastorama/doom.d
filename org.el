@@ -20,6 +20,9 @@
 (add-hook! 'org-mode-hook (lambda ()
                             (org-superstar-mode 1)))
 
+;; Org Agenda Customizations
+(setq! org-agenda-scheduled-leaders '("xd" "xd.%2x."))
+
 ;; Org Babel
 (org-babel-do-load-languages
  'org-babel-load-languages

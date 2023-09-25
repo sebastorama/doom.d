@@ -14,7 +14,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (setq! user-full-name "Sebastião Giacheto Ferreira Júnior"
-      user-mail-address "sebastorama@gmail.com")
+       user-mail-address "sebastorama@gmail.com")
 
 (setq! doom-font-increment 1)
 (setq! doom-font
@@ -45,7 +45,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq! doom-theme 'doom-one)
+(setq! doom-theme 'modus-operandi)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -102,11 +102,11 @@
                                            (lsp--workspace-client wks))))
                             (lsp-workspaces))))
        (with-lsp-workspace eslint
-         (lsp-format-buffer))
+                           (lsp-format-buffer))
      (lsp-format-buffer))))
 
 (add-hook! 'typescript-ts-mode-hook
-          (lambda () (add-hook 'before-save-hook 'my/eslint-format nil 'local)))
+  (lambda () (add-hook 'before-save-hook 'my/eslint-format nil 'local)))
 
 (setq auto-mode-alist (rassq-delete-all 'typescript-mode auto-mode-alist))
 (setq auto-mode-alist (rassq-delete-all 'typescript-tsx-mode auto-mode-alist))
@@ -130,6 +130,6 @@
   (setq! ispell-program-name "hunspell")
   (setq! ispell-dictionary "en_US,pt_BR")
   ;; ispell-set-spellchecker-params has to be called
-;; ispell-hunspell-add-multi-dic will work
+  ;; ispell-hunspell-add-multi-dic will work
   (ispell-set-spellchecker-params)
   (ispell-hunspell-add-multi-dic "en_US,pt_BR"))
