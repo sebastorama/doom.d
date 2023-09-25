@@ -18,7 +18,7 @@
 
 (setq! doom-font-increment 1)
 (setq! doom-font
-       (font-spec :family "Iosevka Nerd Font Mono" :size 15 :weight 'medium))
+       (font-spec :family "Iosevka Nerd Font Mono" :size 16 :weight 'medium))
 ;; (setq! doom-unicode-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'medium))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
