@@ -10,3 +10,8 @@
 (after! apheleia
   (setf (alist-get 'prettier-json apheleia-formatters)
         '("prettier" "--parser" "json")))
+
+(setq auto-mode-alist (rassq-delete-all 'typescript-mode auto-mode-alist))
+(setq auto-mode-alist (rassq-delete-all 'typescript-tsx-mode auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))

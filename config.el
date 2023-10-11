@@ -90,28 +90,6 @@
 ;; accept completion from copilot and fallback to company
 (use-package! copilot :hook (prog-mode . copilot-mode))
 
-;; Make sure that TypeScript files only get formatted once, with eslint when present.
-(setq-hook! 'typescript-ts-mode-hook +format-with-lsp nil)
-(setq-hook! 'tsx-ts-mode-hook +format-with-lsp nil)
-
-(defun my/eslint-format ()
-  (interactive
-   (if-let ((eslint (-first (lambda (wks)
-                              (eq 'eslint (lsp--client-server-id
-                                           (lsp--workspace-client wks))))
-                            (lsp-workspaces))))
-       (with-lsp-workspace eslint
-                           (lsp-format-buffer))
-     (lsp-format-buffer))))
-
-(add-hook! 'typescript-ts-mode-hook
-  (lambda () (add-hook 'before-save-hook 'my/eslint-format nil 'local)))
-
-(setq auto-mode-alist (rassq-delete-all 'typescript-mode auto-mode-alist))
-(setq auto-mode-alist (rassq-delete-all 'typescript-tsx-mode auto-mode-alist))
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
-
 (setq! ispell-data-dir "~/ispell")
 ;; (setq! ispell-aspell-dict-dir ispell-aspell-data-dir)
 ;; (setq! ispell-aspell-dictionary-alist '())
